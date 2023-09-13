@@ -26,5 +26,6 @@ jobs:
     - id: make_hosts_compress
       run: |
         cd hostscompress || exit 255
+        $Env:ProgramW6432
         cl /c /Ycpch.h /std:c++20 /W4 /EHsc pch.cpp || exit 254
         ls
