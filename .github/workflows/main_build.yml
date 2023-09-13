@@ -27,5 +27,5 @@ jobs:
       run: |
         $cl = (Get-ChildItem -Path "$Env:ProgramW6432\Microsoft Visual Studio\" -Recurse -Filter "cl.exe").FullName | Select-String ".*x64\\x64.*"
         cd hostscompress || exit 255
-        & $cl[-1] /c /Ycpch.h /std:c++20 /W4 /EHsc pch.cpp || exit 254
+        $cl[-1] /c /Ycpch.h /std:c++20 /W4 /EHsc pch.cpp || exit 254
         if (-Not (Test-Path -Path pch.pch)) { Exit 253 }
