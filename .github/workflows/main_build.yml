@@ -15,6 +15,7 @@ env:
   VS_FULL:
   RELEASE_TITLE: "Hosts Compress"
   RELEASE_FILE: "./docs/md/pre-release.md"
+  BIN_DEFAULT: "hostscompress"
   PRERELEASE: True
 jobs:
   build_windows:
@@ -27,9 +28,60 @@ jobs:
       run: |
         cd scripts
         ./build.ps1
-# $cl = (Get-ChildItem -Path "$Env:ProgramW6432\Microsoft Visual Studio\" -Recurse -Filter "cl.exe").FullName | Select-String ".*x64\\x64.*"
-# $dev = (Get-ChildItem -Path "$Env:ProgramW6432\Microsoft Visual Studio\" -Recurse -Filter "vsdevcmd.bat").FullName
-# cd hostscompress || exit 255
-# & $dev
-# & $cl[-1] /c /Ycpch.h /std:c++20 /W4 /EHsc pch.cpp
-# if (-Not (Test-Path -Path pch.pch)) { Exit 253 }
+        if ($LASTEXITCODE -gt 0)
+        {
+          Write-Host "[$LASTEXITCODE] - Error in build script."
+          Exit $LASTEXITCODE
+        }
+        cd ../
+        $epoch = [decimal] [datetimeoffset]::UtcNow.ToUnixTimeMilliseconds()
+        echo "VS_FULL=${{ env.VS_PROGRAM }}.${{ env.VS_FILE }}.$epoch" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
+        $hostscompress_x86_md5_text = @'
+        {
+          "schemaVersion": 1,
+          "color": "2E9778",
+          "label": "hostscompress-x86.exe MD5",
+          "message": "PLACEHOLDER",
+          "labelColor": "1d1d1d",
+          "style": "for-the-badge",
+          "namedLogo": "windows"
+        }
+        '@
+        New-Item -ItemType Directory -Force -Path '.\docs\json'
+        Write-Output "$hostscompress_x86_md5_text" > .\docs\json\hostscompress_x86_md5.json
+        $file = ".\docs\json\hostscompress_x86_md5.json"
+        $md5 = New-Object -TypeName System.Security.Cryptography.MD5CryptoServiceProvider
+        $(Get-FileHash -Path "build\windows\x86\hostscompress-x86.exe" -Algorithm MD5).Hash
+        $hash = $(Get-FileHash -Path "build\windows\x86\hostscompress-x86.exe" -Algorithm MD5).Hash
+        ((Get-Content -path $file -Raw) -replace 'PLACEHOLDER',$hash) | Set-Content -Path "$file"
+        $hostscompress_x64_md5_text = @'
+        {
+          "schemaVersion": 1,
+          "color": "2E9778",
+          "label": "hostscompress-x64.exe MD5",
+          "message": "PLACEHOLDER",
+          "labelColor": "1d1d1d",
+          "style": "for-the-badge",
+          "namedLogo": "windows"
+        }
+        '@
+        Write-Output "$hostscompress_x64_md5_text" > .\docs\json\hostscompress_x64_md5.json
+        $file = ".\docs\json\hostscompress_x64_md5.json"
+        $md5 = New-Object -TypeName System.Security.Cryptography.MD5CryptoServiceProvider
+        $hash = $(Get-FileHash -Path "build\windows\x64\hostscompress-x64.exe" -Algorithm MD5).Hash
+        ((Get-Content -path $file -Raw) -replace 'PLACEHOLDER',$hash) | Set-Content -Path "$file"
+        git add .\docs\json\*
+        git config --global user.name 'Lateralus138'
+        git config --global user.email 'Lateralus138@users.noreply.github.com'
+        git commit --allow-empty -am "Pushed .\docs\json\* to master. - $(Get-Date ([datetime]::UtcNow)) UTC"
+        git push --force origin master
+    - uses: ncipollo/release-action@v1
+      if: steps.make_hostscompress.conclusion == 'success'
+      with:
+        allowUpdates: True
+        tag: ${{ env.VS_FULL }}
+        name: ${{ env.RELEASE_TITLE }} - v${{ env.VS_FULL }}
+        bodyFile: ${{ env.RELEASE_FILE }}
+        prerelease: ${{ env.PRERELEASE }}
+        artifacts: build\windows\x86\${{ env.BIN_DEFAULT }}-x86.exe,build\windows\x64\${{ env.BIN_DEFAULT }}-x64.exe
+        token: ${{ secrets.GITHUB_TOKEN }}
