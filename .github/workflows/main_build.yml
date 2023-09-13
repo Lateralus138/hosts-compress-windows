@@ -25,7 +25,9 @@ jobs:
     - uses: microsoft/setup-msbuild@v1.3.1
     - id: make_hosts_compress
       run: |
-        Get-ChildItem -Path $Env:ProgramW6432
+        $cl = (Get-ChildItem -Path "$Env:ProgramW6432\Microsoft Visual Studio\" -Recurse -Filter "cl.exe").FullName | Select-String ".*x64\\x64.*"
+        $cl
+        & $cl
         Exit 0
         cd hostscompress || exit 255
         $Env:ProgramW6432
