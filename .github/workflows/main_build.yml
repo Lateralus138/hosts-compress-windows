@@ -1,0 +1,30 @@
+name: Main Build
+on:
+  push:
+    paths:
+      - '**.cpp'
+      - '**.h'
+      - '**.sln'
+      - '**.yml'
+      - '*.yml'
+      - '**.ps1'
+env:
+  VS_PROGRAM: 1
+  VS_FILE: 0
+  VS_EPOCH:
+  VS_FULL:
+  RELEASE_TITLE: "Hosts Compress"
+  RELEASE_FILE: "./docs/md/pre-release.md"
+  PRERELEASE: True
+jobs:
+  build_windows:
+    name: Build Windows Project
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: microsoft/setup-msbuild@v1.3.1
+    - id: make_hosts_compress
+      run: |
+        cd hostscompress || exit 255
+        cl /c /Ycpch.h /std:c++20 /W4 /EHsc pch.cpp || exit 254
+        ls
