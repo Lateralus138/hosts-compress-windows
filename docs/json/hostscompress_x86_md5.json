@@ -1,23 +1,10 @@
-<<<<<<< HEAD
 {
   "schemaVersion": 1,
   "color": "2E9778",
   "label": "hostscompress-x86.exe MD5",
-  "message": "CD10D8B853E117B6D4003E965948F01F",
+  "message": "FAC75EB9D718C4E5C2C282B5DD0E1B16",
   "labelColor": "1d1d1d",
   "style": "for-the-badge",
   "namedLogo": "windows"
 }
 
-=======
-{
-  "schemaVersion": 1,
-  "color": "2E9778",
-  "label": "hostscompress-x86.exe MD5",
-  "message": "944C38B037A432D1163510A666639593",
-  "labelColor": "1d1d1d",
-  "style": "for-the-badge",
-  "namedLogo": "windows"
-}
-
->>>>>>> 3e15cf3abe8c6bf23df326c189e6d6d9bb09f5e3
