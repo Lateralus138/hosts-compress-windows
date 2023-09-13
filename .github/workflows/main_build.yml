@@ -26,8 +26,8 @@ jobs:
     - id: make_hosts_compress
       run: |
         $cl = (Get-ChildItem -Path "$Env:ProgramW6432\Microsoft Visual Studio\" -Recurse -Filter "cl.exe").FullName | Select-String ".*x64\\x64.*"
-        $cl
-        & $cl
+        $cl[-1]
+        & $cl[-1]
         Exit 0
         cd hostscompress || exit 255
         $Env:ProgramW6432
