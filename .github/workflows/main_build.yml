@@ -25,6 +25,8 @@ jobs:
     - uses: microsoft/setup-msbuild@v1.3.1
     - id: make_hosts_compress
       run: |
+        Get-ChildItem -Path $Env:ProgramW6432
+        Exit 0
         cd hostscompress || exit 255
         $Env:ProgramW6432
         cl /c /Ycpch.h /std:c++20 /W4 /EHsc pch.cpp || exit 254
