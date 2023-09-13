@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "schemaVersion": 1,
   "color": "2E9778",
@@ -8,3 +9,15 @@
   "namedLogo": "windows"
 }
 
+=======
+{
+  "schemaVersion": 1,
+  "color": "2E9778",
+  "label": "hostscompress-x64.exe MD5",
+  "message": "5FC8BBDD0686F5C9BBCDEE29C105BF06",
+  "labelColor": "1d1d1d",
+  "style": "for-the-badge",
+  "namedLogo": "windows"
+}
+
+>>>>>>> 3e15cf3abe8c6bf23df326c189e6d6d9bb09f5e3
