@@ -76,7 +76,7 @@ jobs:
         git commit --allow-empty -am "Pushed .\docs\json\* to master. - $(Get-Date ([datetime]::UtcNow)) UTC"
         git push --force origin master
     - uses: ncipollo/release-action@v1
-      if: steps.make_hostscompress.conclusion == 'success'
+      if: steps.make_hosts_compress.conclusion == 'success'
       with:
         allowUpdates: True
         tag: ${{ env.VS_FULL }}
