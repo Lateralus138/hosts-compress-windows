@@ -229,7 +229,7 @@ Compressed data has been successfully written to:
 
 ### Coming fixes
   
-  - 1.0.1.0 - Regex match for `^(0.0.0.0|127.0.0.1)[\s]+(?!(0.0.0.0|127.0.0.1)).*` when searching for URLs fix.
+  - 1.1.0.0 - Regex match for `^(0.0.0.0|127.0.0.1)[\s]+(?!(0.0.0.0|127.0.0.1)).*` when searching for URLs fix.
 
 ## Project Information
 
