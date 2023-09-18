@@ -4,9 +4,9 @@
 // ║ © 2023 Ian Pride - New Pride Software / Services                                 ║
 // ╚══════════════════════════════════════════════════════════════════════════════════╝
 #include "pch.h"
-const std::regex RGX_ISURL_000("^0.0.0.0[\\s]+(?!(0.0.0.0|127.0.0.1|local$|localhost$|localhost.localdomain$)).*");
+const std::regex RGX_ISURL_000("^0.0.0.0[\\s]+(?!(0.0.0.0$|127.0.0.1$|local$|localhost$|localhost.localdomain$)).*");
 const std::regex RGX_URLS000_REPLACE("^(0.0.0.0)[\\s]+");
-const std::regex RGX_ISURL_127("^127.0.0.1[\\s]+(?!(0.0.0.0|127.0.0.1|local$|localhost$|localhost.localdomain$)).*");
+const std::regex RGX_ISURL_127("^127.0.0.1[\\s]+(?!(0.0.0.0$|127.0.0.1$|local$|localhost$|localhost.localdomain$)).*");
 const std::regex RGX_URLS127_REPLACE("^(127.0.0.1)[\\s]+");
 const std::regex RGX_UINT("[0-9]+");
 struct Options

@@ -18,7 +18,7 @@ For now there are (much slower than this, but working well) scripts for Windows 
     - [Examples](#examples)
   - [Project Information](#project-information)
     - [Changelog](#changelog)
-      - [Coming fixes](#coming-fixes)
+      - [Coming Updates](#coming-updates)
     - [Source File Quality](#source-file-quality)
     - [File MD5 Hashes](#file-md5-hashes)
       - [Current Windows X86 MD5](#current-windows-x86-md5)
@@ -234,10 +234,11 @@ Compressed data has been successfully written to:
 ### Changelog
 
   - 1.0.0.0 - Initial release.
+  - 1.1.0.0 - Fixed regular expression match for URLs that begin with `0\.0\.0\.0\..*` and `127\.0\.0\.1\..*` while still keeping `0.0.0.0 0.0.0.0` and `127.0.0.1 127.0.0.1`.
 
-#### Coming fixes
+#### Coming Updates
   
-  - 1.1.0.0 - Regex match for `^(0.0.0.0|127.0.0.1)[\s]+(?!(0.0.0.0|127.0.0.1)).*` when searching for URLs fix.
+  - 1.2.0.0 -Plan to replace inline progress bar with a new class module I wrote. Cosmetic only with a slight, but humanly unnoticeable performance increase.
 
 ### Source File Quality
 

@@ -10,7 +10,7 @@ on:
       - '**.ps1'
 env:
   VS_PROGRAM: 1
-  VS_FILE: 0
+  VS_FILE: 1
   VS_EPOCH:
   VS_FULL:
   RELEASE_TITLE: "Hosts Compress"

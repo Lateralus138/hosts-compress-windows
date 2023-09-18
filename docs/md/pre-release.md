@@ -4,6 +4,17 @@
 
 ---
 
+### Changelog
+
+  - 1.0.0.0 - Initial release.
+  - 1.1.0.0 - Fixed regular expression match for URLs that begin with `0\.0\.0\.0\..*` and `127\.0\.0\.1\..*` while still keeping `0.0.0.0 0.0.0.0` and `127.0.0.1 127.0.0.1`.
+
+#### Coming Updates
+  
+  - 1.2.0.0 -Plan to replace inline progress bar with a new class module I wrote. Cosmetic only with a slight, but humanly unnoticeable performance increase.
+
+---
+
 This information is generated in a *GitHub Action* immediately after the successful build of this project.
 
 ### Current Windows X86 MD5
