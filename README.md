@@ -8,6 +8,32 @@
 
 For now there are (much slower than this, but working well) scripts for Windows and Linux at my other *hosts compression* project located [***here***](https://github.com/Lateralus138/hosts-compress-windows). -->
 
+- [Hosts Compress - Windows ](#hosts-compress---windows-)
+  - [About](#about)
+    - [Description](#description)
+    - [Motivation](#motivation)
+  - [Usage](#usage)
+    - [Environment](#environment)
+    - [How To Use](#how-to-use)
+    - [Examples](#examples)
+  - [Changelog](#changelog)
+    - [Coming fixes](#coming-fixes)
+  - [Project Information](#project-information)
+    - [Source File Quality](#source-file-quality)
+    - [File MD5 Hashes](#file-md5-hashes)
+    - [Current Windows X86 MD5](#current-windows-x86-md5)
+    - [Current Windows X64 MD5](#current-windows-x64-md5)
+    - [Other Miscellaneous File Information](#other-miscellaneous-file-information)
+  - [Notes](#notes)
+    - [Note 1](#note-1)
+    - [Note 2](#note-2)
+    - [Note 3](#note-3)
+    - [Note 4](#note-4)
+  - [Media](#media)
+  - [Support Me If You Like](#support-me-if-you-like)
+  - [LICENSE](#license)
+
+
 ---
 
 ## About
