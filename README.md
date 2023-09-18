@@ -16,13 +16,13 @@ For now there are (much slower than this, but working well) scripts for Windows 
     - [Environment](#environment)
     - [How To Use](#how-to-use)
     - [Examples](#examples)
-  - [Changelog](#changelog)
-    - [Coming fixes](#coming-fixes)
   - [Project Information](#project-information)
+    - [Changelog](#changelog)
+      - [Coming fixes](#coming-fixes)
     - [Source File Quality](#source-file-quality)
     - [File MD5 Hashes](#file-md5-hashes)
-    - [Current Windows X86 MD5](#current-windows-x86-md5)
-    - [Current Windows X64 MD5](#current-windows-x64-md5)
+      - [Current Windows X86 MD5](#current-windows-x86-md5)
+      - [Current Windows X64 MD5](#current-windows-x64-md5)
     - [Other Miscellaneous File Information](#other-miscellaneous-file-information)
   - [Notes](#notes)
     - [Note 1](#note-1)
@@ -223,19 +223,21 @@ Compressed data has been successfully written to:
 778ms
 ```
 
-## Changelog
-
-  - 1.0.0.0 - Initial release.
-
-### Coming fixes
-  
-  - 1.1.0.0 - Regex match for `^(0.0.0.0|127.0.0.1)[\s]+(?!(0.0.0.0|127.0.0.1)).*` when searching for URLs fix.
+---
 
 ## Project Information
 
 &#x54;&#x68;&#x69;&#x73;&#x20;&#x70;&#x72;&#x6f;&#x6a;&#x65;&#x63;&#x74;&#x20;&#x69;&#x73;&#x20;&#x77;&#x72;&#x69;&#x74;&#x74;&#x65;&#x6e;&#x20;&#x69;&#x6e;&#x20;`C++`.
 
 [![C++](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/hosts-compress-windows/master/docs/json/cpp.json&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC%2FxhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABcVBMVEUAAAAAgM0Af8wolNQAa7YAbbkAQIcAQIYAVJ0AgM0AgM0AgM0AgM0AgM0AgM0AgM0AgM0AgM0AgM0Af8wAfswAfswAf8wAgM0AgM0AgM0Af80AgM0AgM0AgM0AgM0Af8wAgM0Af80djtIIg84Af8wAfsxYrN4Fg84Gg85RqNwej9MLhM8LhM8AfcsAgM0Hg88AfsshkNNTqd1%2Fv%2BUXi9AHdsAAYKoAY64ih8kAf81YkcEFV54GV55Sj8EnlNULhc8AecYdebwKcrsAe8gAb7oAXacAXqgAcLwAImUAUpoAVJ0AUpwAUZoAIWMAVJ0AVJ0AUpwAUZwAVJ0AVJ0AVJ0AVJ0AgM0cjtJqteGczetqtOEAf807ndjL5fT9%2Fv7%2F%2F%2F%2FM5fQ9ntnu9vu12vCi0Oz%2F%2F%2F6Hw%2Bebzeufz%2Bx%2Bv%2BW12e%2Bgz%2BxqteLu9fmRx%2BjL3Ovu8%2Fi1zeKrzeUAUpw7e7M8fLQAU50cZ6hqm8WcvNgAVJ3xWY3ZAAAAVnRSTlMAAAAAAAAAAAAREApTvrxRCQQ9rfX0qwErleyUKjncOFv%2B%2Fv5b%2Ff7%2B%2Fv7%2B%2Fv1b%2Ff7%2B%2Fv7%2BW%2F7%2B%2Fv79%2Fv7%2B%2Fv7%2B%2Fv7%2B%2Fjfa2jcBKJHqKAEEO6r0CVC8EFaOox4AAAABYktHRF9z0VEtAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAB3RJTUUH5QYKDQws%2FBWF6QAAAONJREFUGNNjYAABRkZOLkZGBhhgZOTm4eXjF4AJMQoKCYuEhYmKCQmCRBjFJSSlwiMiI6PCpaRlxBkZGGXlomNi4%2BLj4xISo%2BXkgQIKikqx8UnJyUnxKcqKKiAB1ajUJDV1Dc00LW0dXSaggF56fLK%2BgYFhhlGmsQkzRCDL1MzcIhsmYJkTn2tlbWObZ2cP0sKk4OCYH19QWFgQX%2BTkrMLEwOLiWlySD7I2v7TMzZ2Vgc3D08u7vKKysqLc28vHlx3oVg4%2F%2F4DAqqrAAH8%2FDohnODiCgkNCgoM4OOD%2B5eAIDYVyAZ9mMF8DmkLwAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIxLTA2LTEwVDE4OjEyOjQ0LTA1OjAwkjvGQgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMS0wNi0xMFQxODoxMjo0NC0wNTowMONmfv4AAAAASUVORK5CYII%3D)](http://www.cplusplus.org/)
+
+### Changelog
+
+  - 1.0.0.0 - Initial release.
+
+#### Coming fixes
+  
+  - 1.1.0.0 - Regex match for `^(0.0.0.0|127.0.0.1)[\s]+(?!(0.0.0.0|127.0.0.1)).*` when searching for URLs fix.
 
 ### Source File Quality
 
@@ -249,11 +251,11 @@ Compressed data has been successfully written to:
 
 &#x41;&#x6c;&#x6c;&#x20;&#x68;&#x61;&#x73;&#x68;&#x65;&#x73;&#x20;&#x61;&#x72;&#x65;&#x20;&#x72;&#x65;&#x74;&#x72;&#x69;&#x65;&#x76;&#x65;&#x64;&#x20;&#x61;&#x74;&#x20;&#x63;&#x6f;&#x6d;&#x70;&#x69;&#x6c;&#x65;&#x2f;&#x62;&#x75;&#x69;&#x6c;&#x64;&#x20;&#x74;&#x69;&#x6d;&#x65;&#x2e;
 
-### Current Windows X86 MD5
+#### Current Windows X86 MD5
 
 ![WINDOWS X86 MD5](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/hosts-compress-windows/master/docs/json/hostscompress_x86_md5.json)
 
-### Current Windows X64 MD5
+#### Current Windows X64 MD5
 
 ![WINDOWS X64 MD5](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/hosts-compress-windows/master/docs/json/hostscompress_x64_md5.json)
 
