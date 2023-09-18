@@ -197,6 +197,14 @@ Compressed data has been successfully written to:
 778ms
 ```
 
+## Changelog
+
+  - 1.0.0.0 - Initial release.
+
+### Coming fixes
+  
+  - 1.0.1.0 - Regex match for `^(0.0.0.0|127.0.0.1)[\s]+(?!(0.0.0.0|127.0.0.1)).*` when search for URLs fix.
+
 ## Project Information
 
 &#x54;&#x68;&#x69;&#x73;&#x20;&#x70;&#x72;&#x6f;&#x6a;&#x65;&#x63;&#x74;&#x20;&#x69;&#x73;&#x20;&#x77;&#x72;&#x69;&#x74;&#x74;&#x65;&#x6e;&#x20;&#x69;&#x6e;&#x20;`C++`.
