@@ -235,10 +235,11 @@ Compressed data has been successfully written to:
 
   - 1.0.0.0 - Initial release.
   - 1.1.0.0 - Fixed regular expression match for URLs that begin with `0\.0\.0\.0\..*` and `127\.0\.0\.1\..*` while still keeping `0.0.0.0 0.0.0.0` and `127.0.0.1 127.0.0.1`.
+  - 1.1.1.0 - Bug fix for last entry not being prepended with the correct IP address as reported in issue: [Missing 0.0.0.0 in front of the last line in the output file #1](https://github.com/Lateralus138/hosts-compress-windows/issues/1).
 
 #### Coming Updates
-  
-  - 1.2.0.0 -Plan to replace inline progress bar with a new class module I wrote. Cosmetic only with a slight, but humanly unnoticeable performance increase.
+  - 1.1.2.0 - Possible fix for code page not being set properly. This may just be removed for version 2.
+  - 1.2.0.0 - Possible plan to replace inline progress bar with a new class module I wrote. Cosmetic only with a slight, but humanly unnoticeable performance increase. If removed in a possible 1.1.2.0 version then this will not be necessary.
 
 ### Source File Quality
 

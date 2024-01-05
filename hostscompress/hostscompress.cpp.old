@@ -269,7 +269,6 @@ void CompressUrls(Options& options, std::vector<std::string> &urls, std::vector 
   if (leftOver > 0)
   {
     std::stringstream ss;
-    ss << pre << " ";
     for (int index = (int)(output.size() * options.urlsPerLine); index < (int)urls.size(); index++)
     {
       ss << urls[index];

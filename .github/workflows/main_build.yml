@@ -11,12 +11,13 @@ on:
 env:
   VS_PROGRAM: 1
   VS_FILE: 1
+  VS_BUGFIX: 1
   VS_EPOCH:
   VS_FULL:
   RELEASE_TITLE: "Hosts Compress"
-  RELEASE_FILE: "./docs/md/release.md"
+  RELEASE_FILE: "./docs/md/pre-release.md"
   BIN_DEFAULT: "hostscompress"
-  PRERELEASE: False
+  PRERELEASE: True
 jobs:
   build_windows:
     name: Build Windows Project
@@ -35,7 +36,7 @@ jobs:
         }
         cd ../
         $epoch = [decimal] [datetimeoffset]::UtcNow.ToUnixTimeMilliseconds()
-        echo "VS_FULL=${{ env.VS_PROGRAM }}.${{ env.VS_FILE }}.$epoch" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
+        echo "VS_FULL=${{ env.VS_PROGRAM }}.${{ env.VS_FILE }}.${{ env.VS_BUGFIX }}.$epoch" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
         $hostscompress_x86_md5_text = @'
         {
           "schemaVersion": 1,
