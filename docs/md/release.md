@@ -1,4 +1,4 @@
-# Hosts Compress - [hostscompress] (Pre-release)
+# Hosts Compress - [hostscompress]
 
 ![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Lateralus138&repo=hosts-compress-windows)
 

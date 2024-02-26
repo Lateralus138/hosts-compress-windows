@@ -42,7 +42,7 @@ This is a Windows command line utility that compresses (consolidates) multiple b
 
 I have written the Windows version as the primary version and first because there only seems to be a problem with large hosts files in Windows because of the *DNS Cache* service.
 
-This is the evolutionary step up from my [scripts](https://github.com/Lateralus138/hosts-compress-windows) (*PowerShell* and *Bash*) as it is written in *C++* and exponentially faster (whereas the scripts can take anwyhere from 3-5 minutes for a 200k+ line file, this program takes under 1 second; usually around 500ms for a file of the same size) than any script could ever be.
+This is the evolutionary step up from my [scripts](https://github.com/Lateralus138/hosts-compression-scripts) (*PowerShell* and *Bash*) as it is written in *C++* and exponentially faster (whereas the scripts can take anwyhere from 3-5 minutes for a 200k+ line file, this program takes under 1 second; usually around 500ms for a file of the same size) than any script could ever be.
 
 ***NOTE***: **This tool is highly recommended over the scripts, but you can, of course, still use the scripts.**
 
