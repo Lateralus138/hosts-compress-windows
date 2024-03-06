@@ -9,10 +9,12 @@
   - 1.0.0.0 - Initial release.
   - 1.1.0.0 - Fixed regular expression match for URLs that begin with `0\.0\.0\.0\..*` and `127\.0\.0\.1\..*` while still keeping `0.0.0.0 0.0.0.0` and `127.0.0.1 127.0.0.1`.
   - 1.1.1.0 - Bug fix for last entry not being prepended with the correct IP address as reported in issue: [Missing 0.0.0.0 in front of the last line in the output file #1](https://github.com/Lateralus138/hosts-compress-windows/issues/1).
+  - 2.0.0.0 - Complete removal of progress bar and any console mode code and therefore considered a completely different version.
+    - Progress bar removed because this program is lightning fast even for large files. There's no need for it.
+    - Console mode removed because it no longer works well in modern Windows/CMD. I can't imagine a reason for people to be using CMD in this day and age anyway and I no longer feel compelled to cater to it. Having said that, I do still plan to look into possibilities in the future, but it's not a priority.
 
 #### Coming Updates
-  - 1.1.2.0 - Possible fix for code page not being set properly. This may just be removed for version 2.
-  - 1.2.0.0 - Possible plan to replace inline progress bar with a new class module I wrote. Cosmetic only with a slight, but humanly unnoticeable performance increase. If removed in a possible 1.1.2.0 version then this will not be necessary.
+  - 2.1.0.0 - I will possibly be looking into proper display usage for console mode in modern CMD. This is not a priority and no promise for a time line.
 
 ---
 

@@ -1,7 +1,7 @@
 ﻿// ╔══════════════════════════════════════════════════════════════════════════════════╗
 // ║ Hosts Compress - Aggregate multiple domain names into single lines for local IP  ║
 // ║ addresses of 0.0.0.0 and 127.0.0.1.                                              ║
-// ║ © 2023 Ian Pride - New Pride Software / Services                                 ║
+// ║ © 2024 Ian Pride - New Pride Software / Services                                 ║
 // ╚══════════════════════════════════════════════════════════════════════════════════╝
 #include "pch.h"
 const std::regex RGX_ISURL_000("^0.0.0.0[\\s]+(?!(0.0.0.0$|127.0.0.1$|local$|localhost$|localhost.localdomain$)).*");
@@ -52,7 +52,7 @@ std::string ColorString(std::string string, int color, Options& options)
 unsigned int ParseArguments(ArgumentParser &argumentParser, Options& options, ProgramError &perror)
 {
   const std::vector<std::string> MONOCHROMEOPTIONS{ "/m", "/monochrome" };
-  const std::vector<std::string> HELPOPTIONS{ "/h", "/help" };
+  const std::vector<std::string> HELPOPTIONS{ "/h", "/help", "/?"};
   const std::vector<std::string> INPUTFILEOPTIONS{ "/i", "/input" };
   const std::vector<std::string> OUTPUTFILEOPTIONS{ "/o", "/output" };
   const std::vector<std::string> COUNTOPTIONS{ "/c", "/count" };
@@ -83,7 +83,7 @@ unsigned int ParseArguments(ArgumentParser &argumentParser, Options& options, Pr
       ">]"
       "\n"
       "\n  @" << ColorString("SWITCHES", 92, options) << ":"
-      "\n    /h, /help       This help message."
+      "\n    /h, /help, /?   This help message."
       "\n    /m, /monochrome Verbose output is void of color."
       "\n    /q, /quiet      No verbosity; silences all errors and output with the errors"
       "\n                    and output with the exception of the resulting compression"
@@ -230,24 +230,8 @@ std::u8string IncrementString(std::u8string string, int increment)
 }
 void CompressUrls(Options& options, std::vector<std::string> &urls, std::vector < std::string> &output, std::string pre)
 {
-  const std::u8string BLOCK = u8"█";
-  const std::u8string LBRACKET = u8"〘";
-  const std::u8string RBRACKET = u8"〙";
-  std::string spaces;
-  std::u8string nextCharacter;
-  int stepIndex{};
-  int progressIndex{};
-  if (!options.isQuiet)
-  {
-    stepIndex = 0;
-    progressIndex = 0;
-    spaces = IncrementString(" ", 100);
-    nextCharacter = IncrementString(BLOCK, 0);
-    std::cout << "\x1b[s" << (const char*)LBRACKET.c_str() << (const char*)nextCharacter.c_str() << spaces << (const char*)RBRACKET.c_str() << "0%";
-  }
   for (int index = 0; index <= (int)(urls.size() - options.urlsPerLine); index += options.urlsPerLine)
   {
-    if (!options.isQuiet) progressIndex = ((index * 100) / (int)(urls.size()));
     std::stringstream ss;
     ss << pre << ' ';
     for (int index2 = 0; index2 < options.urlsPerLine; index2++)
@@ -257,13 +241,6 @@ void CompressUrls(Options& options, std::vector<std::string> &urls, std::vector 
       if (index2 < (options.urlsPerLine - 1)) ss << ' ';
     }
     output.push_back(ss.str());
-    if ((!options.isQuiet) && (progressIndex > stepIndex))
-    {
-      stepIndex++;
-      nextCharacter = IncrementString(u8"█", stepIndex);
-      spaces = IncrementString(" ", (100 - stepIndex));
-      std::cout << "\x1b[u" << (const char*)LBRACKET.c_str() << (const char*)nextCharacter.c_str() << spaces << (const char*)RBRACKET.c_str() << stepIndex << '%';
-    }
   }
   int leftOver = (int)(urls.size() - (output.size() * options.urlsPerLine));
   if (leftOver > 0)
@@ -282,10 +259,6 @@ void CompressUrls(Options& options, std::vector<std::string> &urls, std::vector 
   }
   if (!options.isQuiet)
   {
-    stepIndex = 100;
-    nextCharacter = IncrementString(u8"█", stepIndex);
-    spaces = IncrementString(" ", (100 - stepIndex));
-    std::cout << "\x1b[u" << (const char*)LBRACKET.c_str() << (const char*)nextCharacter.c_str() << spaces << (const char*)RBRACKET.c_str() << stepIndex << "%\n";
     std::cout
       <<"Compressed ["
       << (options.isOutputColor ? "\x1b[93m" : "")
@@ -357,11 +330,6 @@ int main(int argc, const char* argv[])
 {
   ProgramError perror;
   Options options;
-  CodePage cp;
-  Handle handle{};
-  ConsoleMode
-    inputConsoleMode,
-    outputConsoleMode;
   auto errorTest = [options](ProgramError& perror)
   {
     if (perror.getError().value > 0)
@@ -404,36 +372,6 @@ int main(int argc, const char* argv[])
     perror.print(options.isOutputColor);
     return perror.getError().value;
   }
-  cp.setInitCodePage(perror, 8, "Could not get the initial code page.");
-  errorTest(perror);
-  if (cp.getCurrentCodePage() != CP_UTF8)
-  {
-    cp.setCodePage(CP_UTF8, perror, 9, "Could not set the current code page.");
-    errorTest(perror);
-  }
-  handle.setInputHandle(perror, 10, "Could not retrieve console input handle.");
-  errorTest(perror);
-
-  inputConsoleMode.setInitConsoleMode(handle.getInputHandle(), perror, 11, "");
-  errorTest(perror);
-  inputConsoleMode.setConsoleMode
-  (
-    handle.getInputHandle(),
-    ENABLE_VIRTUAL_TERMINAL_INPUT | ENABLE_PROCESSED_INPUT,
-    perror, 12, ""
-  );
-  errorTest(perror);
-  handle.setOutputHandle(perror, 12, "Could not retrieve console input handle.");
-  errorTest(perror);
-  outputConsoleMode.setInitConsoleMode(handle.getOutputHandle(), perror, 13, "");
-  errorTest(perror);
-  outputConsoleMode.setConsoleMode
-  (
-    handle.getOutputHandle(),
-    ENABLE_VIRTUAL_TERMINAL_PROCESSING | ENABLE_PROCESSED_OUTPUT,
-    perror, 14, ""
-  );
-  errorTest(perror);
   SetConsoleTitle(L"Hosts Compress");
   PrintMessage
   (
@@ -562,21 +500,6 @@ int main(int argc, const char* argv[])
       },
       options
     );
-  }
-  if (cp.getCurrentCodePage() != cp.getInitCodePage())
-  {
-    cp.setCodePage(cp.getInitCodePage(), perror, 17, "Could not set the code page to the initial value.");
-    errorTest(perror);
-  }
-  if (inputConsoleMode.getCurrentConsoleMode() != inputConsoleMode.getInitConsoleMode())
-  {
-    inputConsoleMode.setConsoleMode(handle.getInputHandle(), inputConsoleMode.getInitConsoleMode(), perror, 18, "Could not set the console mode to the initial value.");
-    errorTest(perror);
-  }
-  if (outputConsoleMode.getCurrentConsoleMode() != outputConsoleMode.getInitConsoleMode())
-  {
-    outputConsoleMode.setConsoleMode(handle.getOutputHandle(), outputConsoleMode.getInitConsoleMode(), perror, 19, "Could not set the console mode to the initial value.");
-    errorTest(perror);
   }
   return EXIT_SUCCESS;
 }

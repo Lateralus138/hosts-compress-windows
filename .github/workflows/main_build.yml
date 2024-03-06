@@ -2,23 +2,21 @@ name: Main Build
 on:
   push:
     paths:
-      - '**.cpp'
-      - '**.h'
-      - '**.o'
+      - 'hostscompress/**.cpp'
+      - 'hostscompress/**.h'
       - '**.sln'
-      - '**.yml'
-      - '*.yml'
-      - '**.ps1'
+      - '.github/workflows/**.yml'
+      - 'scripts/**.ps1'
 env:
-  VS_PROGRAM: 1
-  VS_FILE: 1
-  VS_BUGFIX: 1
+  VS_PROGRAM: 2
+  VS_FILE: 0
+  VS_BUGFIX: 0
   VS_EPOCH:
   VS_FULL:
   RELEASE_TITLE: "Hosts Compress"
-  RELEASE_FILE: "./docs/md/release.md"
+  RELEASE_FILE: "./docs/md/pre-release.md"
   BIN_DEFAULT: "hostscompress"
-  PRERELEASE: False
+  PRERELEASE: True
 jobs:
   build_windows:
     name: Build Windows Project
