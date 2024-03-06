@@ -14,9 +14,9 @@ env:
   VS_EPOCH:
   VS_FULL:
   RELEASE_TITLE: "Hosts Compress"
-  RELEASE_FILE: "./docs/md/pre-release.md"
+  RELEASE_FILE: "./docs/md/release.md"
   BIN_DEFAULT: "hostscompress"
-  PRERELEASE: True
+  PRERELEASE: False
 jobs:
   build_windows:
     name: Build Windows Project
