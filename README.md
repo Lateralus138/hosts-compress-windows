@@ -1,4 +1,4 @@
-# Hosts Compress - Windows <img src="./docs/media/logo/hostscompress.png" width="28" alt="Beep Frequency Logo" style="vertical-align: middle;">
+# Hosts Compress - Windows <img src="./docs/media/logo/hostscompress.png" width="28" alt="Beep Frequency Logo" style="vertical-align: middle;"> 
 
 ![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Lateralus138&repo=hosts-compress-windows)
 
@@ -273,6 +273,8 @@ Compressed data has been successfully written to:
 |     Complete repository size     |         ![This Repo Size](https://img.shields.io/github/repo-size/Lateralus138/hosts-compress-windows?style=for-the-badge&labelColor=1D1D1D&color=ffff99)         |
 |      Commits in last month       | ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Lateralus138/hosts-compress-windows?style=for-the-badge&labelColor=1D1D1D&color=ffff99) |
 |       Commits in last year       | ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/Lateralus138/hosts-compress-windows?style=for-the-badge&labelColor=1D1D1D&color=ffff99) |
+
+![](https://ghvc.kabelkultur.se?username=Lateralus138&repository=hosts-compress-windows&color=2E9778)
 
 ---
 
