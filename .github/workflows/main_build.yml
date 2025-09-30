@@ -1,11 +1,12 @@
 name: Main Build
 on:
   push:
+    branches-ignore:
+      - 'working'
     paths:
       - 'hostscompress/**.cpp'
       - 'hostscompress/**.h'
       - '**.sln'
-      - '.github/workflows/**.yml'
       - 'scripts/**.ps1'
 env:
   VS_PROGRAM: 2
