@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - 'working'
-    branches-ignore:
-      - 'master'
     paths:
       - 'hostscompress/**.cpp'
       - 'hostscompress/**.h'
