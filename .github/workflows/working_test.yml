@@ -1,0 +1,29 @@
+name: Main Build
+on:
+  push:
+    branches:
+      - 'working'
+    branches-ignore:
+      - 'master'
+    paths:
+      - 'hostscompress/**.cpp'
+      - 'hostscompress/**.h'
+      - '**.sln'
+      - 'scripts/**.ps1'
+jobs:
+  build_windows:
+    name: Build Windows Project
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: microsoft/setup-msbuild@v1.3.1
+    - id: make_hosts_compress
+      run: |
+        cd scripts
+        ./build.ps1
+        if ($LASTEXITCODE -gt 0)
+        {
+          Write-Host "[$LASTEXITCODE] - Error in build script."
+          Exit $LASTEXITCODE
+        }
+        cd ../
